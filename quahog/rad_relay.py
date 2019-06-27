@@ -16,8 +16,12 @@ OLED_CURRENTLINE=0
 
 TIMEOUT = 1.
 
+PUBLIC_KEY="6cfffad03d942a303b39856a04148a01"
+PRIVATE_KEY="37d6266de73f098dc95fa9d3bfaf033b"
+
 # sensor data + url
-url_base='http://mosspig.club/?public_key=834c74e03901cd1702c0a3060803f767&private_key=bfe468dc77b5530d65319b67cc39cdbc'
+url_base='http://mosspig.club/?public_key='+PUBLIC_KEY+'&private_key='+PRIVATE_KEY
+
 
 FONA_RX=19
 FONA_TX=21

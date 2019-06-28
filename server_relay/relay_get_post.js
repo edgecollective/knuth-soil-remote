@@ -10,9 +10,9 @@ app.use(express.static(__dirname + "/public")); //use static files in ROOT/publi
 
 app.use(bodyParser.json())
 
-//const base_url='https://wolfesneck.farmos.net/farm/sensor/listener/'
+//const gen_base_url='https://wolfesneck.farmos.net/farm/sensor/listener/'
 
-const base_url='https://edgecollective.farmos.net/farm/sensor/listener/'
+const gen_base_url='https://edgecollective.farmos.net/farm/sensor/listener/'
 
 // test url to use:
 //'http://localhost:1337/?public_key=834c74e03901cd1702c0a3060803f767&private_key=bfe468dc77b5530d65319b67cc39cdbc&temp=14.3&moisture=23.3'
@@ -21,7 +21,7 @@ app.post("/", function(req,response){
 	response.status(200).send(req.body);
 	console.log(req.body.temp);
 
-	var post_url=base_url+req.body.public_key+'?private_key='+req.body.private_key;
+	var post_url=gen_base_url+req.body.public_key+'?private_key='+req.body.private_key;
     console.log(post_url);
 
 	request.post(
@@ -52,7 +52,7 @@ app.get("/", function(req, response){ //root dir
     for (var propName in req.query) {
     if (req.query.hasOwnProperty(propName)) {
         //console.log(propName, req.query[propName]);
-        if ((propName != "public_key") && (propName != "private_key")) {
+        if ((propName != "public_key") && (propName != "private_key") &&(propName !="farmos_name")) {
         //console.log("yeah",propName,req.query[propName]);	
 	//param_set.add([propName,req.query[propName]]);
         params[propName]=req.query[propName]; 
@@ -73,6 +73,9 @@ console.log("whee",item,params[item]);
     //console.log(req.query.moisture);
     //console.log(Object.keys(req.params).length);
     //console.log(req.baseUrl);
+   
+    //var post_url=base_url+req.query.public_key+'?private_key='+req.query.private_key;
+    const base_url='https://'+req.query.farmos_name+'.farmos.net/farm/sensor/listener/'
     var post_url=base_url+req.query.public_key+'?private_key='+req.query.private_key;
     console.log(post_url);
 

@@ -16,15 +16,11 @@ OLED_CURRENTLINE=0
 
 TIMEOUT = 1.
 
-FARMOS_NAME="edgecollective"
-
-#PUBLIC_KEY="6cfffad03d942a303b39856a04148a01"
-#PRIVATE_KEY="37d6266de73f098dc95fa9d3bfaf033b"
-PUBLIC_KEY="c143a211004b8b6ff64936fdb78f102a"
-PRIVATE_KEY="06b5e1f4636963c4529d14b9ce800033"
+PUBLIC_KEY="6cfffad03d942a303b39856a04148a01"
+PRIVATE_KEY="37d6266de73f098dc95fa9d3bfaf033b"
 
 # sensor data + url
-url_base='http://mosspig.club/?public_key='+PUBLIC_KEY+'&private_key='+PRIVATE_KEY+'&farmos_name='+FARMOS_NAME
+url_base='http://mosspig.club/?public_key='+PUBLIC_KEY+'&private_key='+PRIVATE_KEY
 
 
 FONA_RX=19
@@ -66,8 +62,7 @@ def relay_post(url):
 	time.sleep(1)
 	print(uart.readline())
 	print(uart.readline())
-	#uart.write("AT+SAPBR=3,1,\"APN\",\"fast.t-mobile.com\"\r")
-	uart.write("AT+SAPBR=3,1,\"APN\",\"wholesale\"\r")
+	uart.write("AT+SAPBR=3,1,\"APN\",\"fast.t-mobile.com\"\r")
 	time.sleep(1)
 	print(uart.readline())
 	print(uart.readline())
@@ -182,9 +177,9 @@ while True:
 			if len(params)==2:
 				print(params)
 				temp=params[0]
-				moisture=params[1]
-				#moisture=cell_batt # NEED TO FIX THIS HACK -- can we do an HTTP POST to mosspig.club relay?
-				url_full=url_base+'&temp='+str(temp)+'&moisture='+str(moisture)+'&cell_bat='+str(cell_batt)
+				#moisture=params[1]
+				moisture=cell_batt # NEED TO FIX THIS HACK -- can we do an HTTP POST to mosspig.club relay?
+				url_full=url_base+'&temp='+str(temp)+'&moisture='+str(moisture)
 				print(url_full)
 				relay_post(url_full)
 			else:

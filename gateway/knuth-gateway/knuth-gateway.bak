@@ -430,4 +430,53 @@ Wire Wire Line
 Wire Wire Line
 	3650 2950 4900 2950
 Connection ~ 3650 2400
+$Comp
+L Connector:Conn_01x16_Female J?
+U 1 1 5D1A8A1E
+P 1200 5400
+F 0 "J?" H 1094 4375 50  0000 C CNN
+F 1 "Conn_01x16_Female" H 1094 4466 50  0000 C CNN
+F 2 "" H 1200 5400 50  0001 C CNN
+F 3 "~" H 1200 5400 50  0001 C CNN
+	1    1200 5400
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1850 4600 1400 4600
+Wire Wire Line
+	1400 4700 1850 4700
+Wire Wire Line
+	1850 4800 1400 4800
+Wire Wire Line
+	1400 4900 1850 4900
+Connection ~ 1850 4900
+Wire Wire Line
+	1850 5000 1400 5000
+Connection ~ 1850 5000
+Wire Wire Line
+	1400 5100 1850 5100
+Connection ~ 1850 5100
+Wire Wire Line
+	1850 5200 1400 5200
+Wire Wire Line
+	1400 5300 1850 5300
+Wire Wire Line
+	1850 5400 1400 5400
+Wire Wire Line
+	1400 5500 1850 5500
+Connection ~ 1850 5500
+Wire Wire Line
+	1850 5600 1400 5600
+Wire Wire Line
+	1400 5700 1850 5700
+Wire Wire Line
+	1850 5800 1400 5800
+Wire Wire Line
+	1400 5900 1850 5900
+Connection ~ 1850 5900
+Wire Wire Line
+	1850 6000 1400 6000
+Wire Wire Line
+	1400 6100 1850 6100
+Connection ~ 1850 6100
 $EndSCHEMATC

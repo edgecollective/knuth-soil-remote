@@ -15,7 +15,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L Device:Q_NPN_EBC Q1
+L knuth-gateway-rescue:Q_NPN_EBC-Device Q1
 U 1 1 5D1906A1
 P 5200 4350
 F 0 "Q1" H 5391 4304 50  0000 L CNN
@@ -23,21 +23,10 @@ F 1 "Q_NPN_EBC" H 5391 4395 50  0000 L CNN
 F 2 "Package_TO_SOT_THT:TO-92" H 5400 4450 50  0001 C CNN
 F 3 "~" H 5200 4350 50  0001 C CNN
 	1    5200 4350
-	1    0    0    1   
+	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Q_NPN_BCE Q2
-U 1 1 5D1907E8
-P 5300 3650
-F 0 "Q2" V 5628 3650 50  0000 C CNN
-F 1 "Q_NPN_BCE" V 5537 3650 50  0000 C CNN
-F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 5500 3750 50  0001 C CNN
-F 3 "~" H 5300 3650 50  0001 C CNN
-	1    5300 3650
-	0    1    -1   0   
-$EndComp
-$Comp
-L Device:R R1
+L knuth-gateway-rescue:R-Device R1
 U 1 1 5D190899
 P 5300 4000
 F 0 "R1" H 5370 4046 50  0000 L CNN
@@ -169,7 +158,7 @@ Wire Wire Line
 Wire Wire Line
 	3400 2800 4600 2800
 $Comp
-L Device:R R3
+L knuth-gateway-rescue:R-Device R3
 U 1 1 5D198BCF
 P 4050 3300
 F 0 "R3" V 3843 3300 50  0000 C CNN
@@ -407,7 +396,7 @@ Wire Wire Line
 Wire Wire Line
 	3400 1550 3750 1550
 $Comp
-L Device:R R2
+L knuth-gateway-rescue:R-Device R2
 U 1 1 5D1CAEE6
 P 2450 1600
 F 0 "R2" V 2657 1600 50  0000 C CNN
@@ -479,4 +468,15 @@ Wire Wire Line
 Wire Wire Line
 	1400 6100 1850 6100
 Connection ~ 1850 6100
+$Comp
+L device:Q_PNP_BCE Q2
+U 1 1 5D1BCE58
+P 5300 3650
+F 0 "Q2" V 5631 3650 50  0000 C CNN
+F 1 "Q_PNP_BCE" V 5538 3650 50  0000 C CNN
+F 2 "TO_SOT_Packages_THT:TO-220-3_Vertical" H 5500 3750 50  0001 C CNN
+F 3 "" H 5300 3650 50  0001 C CNN
+	1    5300 3650
+	0    1    -1   0   
+$EndComp
 $EndSCHEMATC

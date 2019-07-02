@@ -419,17 +419,6 @@ Wire Wire Line
 Wire Wire Line
 	3650 2950 4900 2950
 Connection ~ 3650 2400
-$Comp
-L Connector:Conn_01x16_Female J1
-U 1 1 5D1A8A1E
-P 1200 5400
-F 0 "J1" H 1094 4375 50  0000 C CNN
-F 1 "Conn_01x16_Female" H 1094 4466 50  0000 C CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_1x16_P2.54mm_Vertical" H 1200 5400 50  0001 C CNN
-F 3 "~" H 1200 5400 50  0001 C CNN
-	1    1200 5400
-	-1   0    0    1   
-$EndComp
 Wire Wire Line
 	1850 4600 1400 4600
 Wire Wire Line
@@ -478,5 +467,16 @@ F 2 "TO_SOT_Packages_THT:TO-220-3_Vertical" H 5500 3750 50  0001 C CNN
 F 3 "" H 5300 3650 50  0001 C CNN
 	1    5300 3650
 	0    1    -1   0   
+$EndComp
+$Comp
+L Connector:Conn_01x16_Female J1
+U 1 1 5D1A8A1E
+P 1200 5400
+F 0 "J1" H 1094 4375 50  0000 C CNN
+F 1 "Conn_01x16_Female" H 1094 4466 50  0000 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x16_P2.54mm_Vertical" H 1200 5400 50  0001 C CNN
+F 3 "~" H 1200 5400 50  0001 C CNN
+	1    1200 5400
+	-1   0    0    1   
 $EndComp
 $EndSCHEMATC

@@ -27,12 +27,12 @@ PRIVATE_KEY="06b5e1f4636963c4529d14b9ce800033"
 url_base='http://mosspig.club/?public_key='+PUBLIC_KEY+'&private_key='+PRIVATE_KEY+'&farmos_name='+FARMOS_NAME
 
 
-FONA_RX=19
-FONA_TX=21
+FONA_TX=19
+FONA_RX=21
 BAUDRATE=9600
 CELL_PRE_SLEEP=5
 
-uart = UART(1, baudrate=BAUDRATE,rx=FONA_RX,tx=FONA_TX,timeout=10)
+uart = UART(1, baudrate=BAUDRATE,rx=FONA_TX,tx=FONA_RX,timeout=10)
 
 done = Pin(22,Pin.OUT)
 done.value(0)

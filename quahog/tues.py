@@ -173,13 +173,21 @@ while True:
 			params=packet_text.split(",")
 			print(params)
 			if len(params)==3:
-				temp=params[0]
-				moisture=params[2]
+				ec_raw=float(params[1])
+				temp_raw=float(params[2])
+				if (temp_raw>900):
+					temp_raw=5*(temp_raw–900) + 900
+				temp=(temp_raw-400)/10.
+				
+				if (ec_raw>700):
+					ec_raw= 5*(ec_raw–700) + 700
+				moisture=ec_raw/100.
+				
 				url_full=url_base+'&temp='+str(temp)+'&moisture='+str(moisture)+'&cell_bat='+str(cell_batt)
 				print(url_full)
 				relay_post(url_full)
 				done.value(1)
-				time.sleep(90)
+				time.sleep(60*5)
 				
 		except Exception as e:
 			print("error: "+str(e))

@@ -1,0 +1,1 @@
+Adafruit CircuitPython 4.0.2 on 2019-06-27; Adafruit Feather M0 RFM9x with samd21g18

@@ -173,6 +173,11 @@ while True:
 			params=packet_text.split(",")
 			print(params)
 			if len(params)==3:
+				
+				
+				die_raw=float(params[0])
+				dielectric=die_raw/50.
+				
 				ec_raw=float(params[1])
 				temp_raw=float(params[2])
 				if (temp_raw>900):
@@ -181,9 +186,10 @@ while True:
 				
 				if (ec_raw>700):
 					ec_raw= 5*(ec_raw–700) + 700
-				moisture=ec_raw/100.
+				ec=ec_raw/100.
 				
-				url_full=url_base+'&temp='+str(temp)+'&moisture='+str(moisture)+'&cell_bat='+str(cell_batt)
+				#url_full=url_base+'&temp='+str(temp)+'&moisture='+str(moisture)+'&cell_bat='+str(cell_batt)
+				url_full=url_base+'&temp='+str(temp)+'&ec='+str(ec)+'&cell_bat='+str(cell_batt)+'&dielectric='+str(dielectric)
 				print(url_full)
 				relay_post(url_full)
 				done.value(1)

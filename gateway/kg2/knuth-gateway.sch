@@ -1,5 +1,6 @@
 EESchema Schematic File Version 4
-EELAYER 26 0
+LIBS:knuth-gateway-cache
+EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -29,7 +30,7 @@ L knuth-gateway-rescue:R-Device R1
 U 1 1 5D190899
 P 5300 4000
 F 0 "R1" H 5370 4046 50  0000 L CNN
-F 1 "R" H 5370 3955 50  0000 L CNN
+F 1 "500 Ohms" H 5370 3955 50  0000 L CNN
 F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal" V 5230 4000 50  0001 C CNN
 F 3 "~" H 5300 4000 50  0001 C CNN
 	1    5300 4000
@@ -129,7 +130,7 @@ L knuth-gateway-rescue:R-Device R3
 U 1 1 5D198BCF
 P 4050 3300
 F 0 "R3" V 3843 3300 50  0000 C CNN
-F 1 "R" V 3934 3300 50  0000 C CNN
+F 1 "1K" V 3934 3300 50  0000 C CNN
 F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal" V 3980 3300 50  0001 C CNN
 F 3 "~" H 4050 3300 50  0001 C CNN
 	1    4050 3300

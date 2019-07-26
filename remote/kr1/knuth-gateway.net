@@ -1,8 +1,8 @@
 (export (version D)
   (design
     (source /home/dwblair/gitwork/knuth-soil-remote/remote/kr1/knuth-gateway.sch)
-    (date "Thu 25 Jul 2019 07:50:22 PM EDT")
-    (tool "Eeschema 5.1.2-f72e74a~84~ubuntu18.04.1")
+    (date "Thu 25 Jul 2019 09:48:17 PM EDT")
+    (tool "Eeschema 5.0.2-bee76a0~70~ubuntu18.04.1")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
         (title)
@@ -64,7 +64,7 @@
       (tstamp 5D3CC155))
     (comp (ref R1)
       (value 4.7K)
-      (footprint Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P5.08mm_Vertical)
+      (footprint Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P5.08mm_Vertical)
       (datasheet ~)
       (libsource (lib Device) (part R) (description Resistor))
       (sheetpath (names /) (tstamps /))

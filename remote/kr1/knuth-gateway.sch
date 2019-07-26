@@ -1,6 +1,6 @@
 EESchema Schematic File Version 4
 LIBS:knuth-gateway-cache
-EELAYER 29 0
+EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -244,7 +244,7 @@ U 1 1 5D3DC753
 P 6450 3650
 F 0 "R1" H 6380 3604 50  0000 R CNN
 F 1 "4.7K" V 6550 3750 50  0000 R CNN
-F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P5.08mm_Vertical" V 6380 3650 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P5.08mm_Vertical" V 6380 3650 50  0001 C CNN
 F 3 "~" H 6450 3650 50  0001 C CNN
 	1    6450 3650
 	-1   0    0    1   

@@ -316,4 +316,15 @@ Wire Wire Line
 	3550 1600 3550 2400
 Wire Wire Line
 	3550 2400 3200 2400
+$Comp
+L Connector:Conn_01x02_Female J?
+U 1 1 5D3A6032
+P 4950 2050
+F 0 "J?" H 4977 2026 50  0000 L CNN
+F 1 "Conn_01x02_Female" H 4977 1935 50  0000 L CNN
+F 2 "" H 4950 2050 50  0001 C CNN
+F 3 "~" H 4950 2050 50  0001 C CNN
+	1    4950 2050
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

@@ -28,6 +28,10 @@ rfm9x = adafruit_rfm9x.RFM9x(spi, cs, reset, 915.0)
 led = digitalio.DigitalInOut(board.D13)
 led.direction = digitalio.Direction.OUTPUT
 
+# done
+done = digitalio.DigitalInOut(board.D10)
+done.direction = digitalio.Direction.OUTPUT
+
 # default values if probe doesn't work
 
 temp=30
@@ -46,6 +50,14 @@ url_base='http://mosspig.club/?public_key='+PUBLIC_KEY+'&private_key='+PRIVATE_K
 # onewire sensor
 ow_bus = OneWireBus(board.D5)
 
+# Scan for sensors and grab the first one found.
+ds18_bus=ow_bus.scan()
+print(ds18_bus)
+
+ds18=[]
+for probe in ds18_bus:
+    print(probe)
+    ds18.append(DS18X20(ow_bus, probe))
 
 def relay_post(url):
     #time.sleep(CELL_PRE_SLEEP)
@@ -116,7 +128,7 @@ def relay_post(url):
     print(uart.readline())
     print(uart.readline())
 
-def get_cell_battery_voltage():
+""" def get_cell_battery_voltage():
     uart.readline()
     uart.readline()
     uart.readline()
@@ -136,7 +148,7 @@ def get_cell_battery_voltage():
     batt=float(str(b,'ascii').strip().split(",")[2])/1000.
     #print("batt=",batt)
     return batt
-
+ """
 def blink(numtimes):
     for i in range(0,numtimes):
         led.value=True
@@ -144,9 +156,16 @@ def blink(numtimes):
         led.value = False
         time.sleep(.1)
 
+
+done.value=True
+
 while True:
 
-    temp = 25. #replace with onewire soon
+    temp = -99 #replace with onewire soon
+
+    if (len(ds18)==1):
+        sensor=ds18[0]
+        temp=float(sensor.temperature)
 
     ec_5= ec_5_in.value # in counts
 
@@ -162,8 +181,8 @@ while True:
             blink(1)
             
             print(packet_text)
-            cell_batt=get_cell_battery_voltage()
-            print("cell_batt=",cell_batt)
+            #cell_batt=get_cell_battery_voltage()
+            #print("cell_batt=",cell_batt)
             rssi=str(rfm9x.rssi)
             print('Received: {}'.format(packet_text))
             print("RSSI: {}".format(rssi))
@@ -187,7 +206,8 @@ while True:
                 remote_batt = float(params[2])
 
                 remote_rssi = float(rssi)
-                url_full=url_base+'&vbatt='+str(vbatt)+'&ec_5='+str(ec_5)+'&temp='+str(temp)+'&remote_temp='+str(remote_temp)+'&remote_rssi='+str(remote_rssi)+'&remote_ec_5='+str(remote_ec_5)+'&remote_batt='+str(remote_batt)+'&cell_bat='+str(cell_batt)
+                url_full=url_base+'&vbatt='+str(vbatt)+'&ec_5='+str(ec_5)+'&temp='+str(temp)+'&remote_temp='+str(remote_temp)+'&remote_rssi='+str(remote_rssi)+'&remote_ec_5='+str(remote_ec_5)+'&remote_batt='+str(remote_batt)
+                #+'&cell_bat='+str(cell_batt)
 
                 print(url_full)
 
@@ -198,6 +218,8 @@ while True:
                 blink(4)
 
                 #time.sleep(60)
+                done.value=False
+
         except Exception as e:
             print("error: "+str(e))
             blink(10)

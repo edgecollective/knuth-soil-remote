@@ -59,6 +59,13 @@ for probe in ds18_bus:
     print(probe)
     ds18.append(DS18X20(ow_bus, probe))
 
+def blink(numtimes):
+    for i in range(0,numtimes):
+        led.value=True
+        time.sleep(.1)
+        led.value = False
+        time.sleep(.1)
+
 def relay_post(url):
     #time.sleep(CELL_PRE_SLEEP)
     print(uart.readline())
@@ -116,10 +123,6 @@ def relay_post(url):
     print(a)
     print(b)
 
-    #oled.fill(0)
-    #oled.text(a,0,0)
-    #oled.show()
-
     uart.write( b"WAIT=6\r")
     print(uart.readline())
     print(uart.readline())
@@ -128,36 +131,9 @@ def relay_post(url):
     print(uart.readline())
     print(uart.readline())
 
-""" def get_cell_battery_voltage():
-    uart.readline()
-    uart.readline()
-    uart.readline()
-    uart.readline()
-    #print("\n-----")
-    uart.write( b"AT+CBC\r")
-    time.sleep(1)
-    a=uart.readline()
-    print("a=",a)
-    b=uart.readline()
-    print("b=",b)
-    c=uart.readline()
-    print("c=",c)
-    d=uart.readline()
-    print("d=",d)
-    #batt=float(b.decode("utf-8").strip().split(",")[2])/1000.
-    batt=float(str(b,'ascii').strip().split(",")[2])/1000.
-    #print("batt=",batt)
-    return batt
- """
-def blink(numtimes):
-    for i in range(0,numtimes):
-        led.value=True
-        time.sleep(.1)
-        led.value = False
-        time.sleep(.1)
+done.value=False
 
-
-done.value=True
+blink(5)
 
 while True:
 
@@ -178,11 +154,9 @@ while True:
         try:
             packet_text = str(packet, 'ascii')
 
-            blink(1)
             
             print(packet_text)
-            #cell_batt=get_cell_battery_voltage()
-            #print("cell_batt=",cell_batt)
+           
             rssi=str(rfm9x.rssi)
             print('Received: {}'.format(packet_text))
             print("RSSI: {}".format(rssi))
@@ -197,7 +171,6 @@ while True:
 
             vbatt = vbatt_in.value*3.3 / 65536
 
-
             if len(params)==3:
                 remote_temp=float(params[0])
 
@@ -207,23 +180,16 @@ while True:
 
                 remote_rssi = float(rssi)
                 url_full=url_base+'&vbatt='+str(vbatt)+'&ec_5='+str(ec_5)+'&temp='+str(temp)+'&remote_temp='+str(remote_temp)+'&remote_rssi='+str(remote_rssi)+'&remote_ec_5='+str(remote_ec_5)+'&remote_batt='+str(remote_batt)
-                #+'&cell_bat='+str(cell_batt)
 
                 print(url_full)
 
-                blink(2)
+                blink(1)
                 relay_post(url_full)
                 print("sent") 
-
-                blink(4)
-
+                blink(10)
                 #time.sleep(60)
-                done.value=False
+                done.value=True
 
         except Exception as e:
             print("error: "+str(e))
-            blink(10)
-
-
-    
 

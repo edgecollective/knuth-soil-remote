@@ -213,7 +213,7 @@ while True:
 
                 blink(2)
                 relay_post(url_full)
-                print("sent")
+                print("sent") 
 
                 blink(4)
 

@@ -181,21 +181,22 @@ while True:
 			if len(params)==3:
 				
 				
-				die_raw=float(params[0])
-				dielectric=die_raw/50.
+				temp=float(params[0])
+				#dielectric=die_raw/50.
 				
-				ec_raw=float(params[1])
-				temp_raw=float(params[2])
-				if (temp_raw>900):
-					temp_raw=5*(temp_raw–900) + 900
-				temp=(temp_raw-400)/10.
+				ec_5=float(params[1])
+				#temp_raw=float(params[2])
+				#if (temp_raw>900):
+				#	temp_raw=5*(temp_raw–900) + 900
+				#temp=(temp_raw-400)/10.
 				
-				if (ec_raw>700):
-					ec_raw= 5*(ec_raw–700) + 700
-				ec=ec_raw/100.
+				#if (ec_raw>700):
+				#	ec_raw= 5*(ec_raw–700) + 700
+				#ec=ec_raw/100.
+				remote_batt = float(params[2])
 				
 				#url_full=url_base+'&temp='+str(temp)+'&moisture='+str(moisture)+'&cell_bat='+str(cell_batt)
-				url_full=url_base+'&temp='+str(temp)+'&ec='+str(ec)+'&cell_bat='+str(cell_batt)+'&dielectric='+str(dielectric)
+				url_full=url_base+'&temp='+str(temp)+'&ec_5='+str(ec_5)+'&remote_batt='+str(remote_batt)+'&cell_bat='+str(cell_batt)
 				print(url_full)
 
 				#oled.fill(0)

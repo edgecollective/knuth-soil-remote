@@ -185,7 +185,7 @@ D1
 Text GLabel 8150 2550 0    50   Input ~ 0
 DI01
 Wire Wire Line
-	3800 1950 4000 1950
+	3800 1950 3950 1950
 Wire Wire Line
 	3200 2500 3750 2500
 Wire Wire Line
@@ -239,12 +239,12 @@ F 3 "" H 6700 4700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R R1
+L Device:R RP
 U 1 1 5D3DC753
 P 6450 3650
-F 0 "R1" H 6380 3604 50  0000 R CNN
+F 0 "RP" H 6380 3604 50  0000 R CNN
 F 1 "4.7K" V 6550 3750 50  0000 R CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P5.08mm_Vertical" V 6380 3650 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 6380 3650 50  0001 C CNN
 F 3 "~" H 6450 3650 50  0001 C CNN
 	1    6450 3650
 	-1   0    0    1   
@@ -301,19 +301,87 @@ $Comp
 L Connector:Conn_01x03_Female switch1
 U 1 1 5D40388A
 P 3550 1400
-F 0 "switch1" V 3488 1212 50  0000 R CNN
-F 1 "Conn_01x03_Female" V 3397 1212 50  0000 R CNN
+F 0 "switch1" V 3800 1600 50  0000 R CNN
+F 1 "Conn_01x03_Female" V 3650 1750 50  0000 R CNN
 F 2 "Connector_PinSocket_2.54mm:PinSocket_1x03_P2.54mm_Vertical" H 3550 1400 50  0001 C CNN
 F 3 "~" H 3550 1400 50  0001 C CNN
 	1    3550 1400
 	0    -1   -1   0   
 $EndComp
 Wire Wire Line
-	4000 1850 3650 1850
+	4000 1850 3900 1850
 Wire Wire Line
-	3650 1850 3650 1600
+	3650 1850 3650 1750
 Wire Wire Line
 	3550 1600 3550 2400
 Wire Wire Line
 	3550 2400 3200 2400
+$Comp
+L Connector:Conn_01x02_Female solar1
+U 1 1 5D3A6032
+P 4400 1450
+F 0 "solar1" H 4427 1426 50  0000 L CNN
+F 1 "Conn_01x02_Female" H 4427 1335 50  0000 L CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical" H 4400 1450 50  0001 C CNN
+F 3 "~" H 4400 1450 50  0001 C CNN
+	1    4400 1450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R RD1
+U 1 1 5D3B9AD0
+P 2200 1900
+F 0 "RD1" H 2270 1946 50  0000 L CNN
+F 1 "R" H 2270 1855 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 2130 1900 50  0001 C CNN
+F 3 "~" H 2200 1900 50  0001 C CNN
+	1    2200 1900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R RD2
+U 1 1 5D3B9B54
+P 2200 2200
+F 0 "RD2" H 2270 2246 50  0000 L CNN
+F 1 "R" H 2270 2155 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 2130 2200 50  0001 C CNN
+F 3 "~" H 2200 2200 50  0001 C CNN
+	1    2200 2200
+	1    0    0    -1  
+$EndComp
+Connection ~ 3650 1750
+Wire Wire Line
+	3650 1750 3650 1600
+Wire Wire Line
+	2200 1750 3650 1750
+Wire Wire Line
+	2200 2050 2050 2050
+Connection ~ 2200 2050
+Text GLabel 2050 2050 0    50   Input ~ 0
+A5
+$Comp
+L knuth-gateway-rescue:GND-power #PWR0108
+U 1 1 5D3BB55A
+P 2200 2350
+F 0 "#PWR0108" H 2200 2100 50  0001 C CNN
+F 1 "GND" H 2205 2177 50  0000 C CNN
+F 2 "" H 2200 2350 50  0001 C CNN
+F 3 "" H 2200 2350 50  0001 C CNN
+	1    2200 2350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3900 1850 3900 1450
+Wire Wire Line
+	3900 1450 4200 1450
+Connection ~ 3900 1850
+Wire Wire Line
+	3900 1850 3650 1850
+Wire Wire Line
+	3950 1950 3950 1550
+Wire Wire Line
+	3950 1550 4200 1550
+Connection ~ 3950 1950
+Wire Wire Line
+	3950 1950 4000 1950
 $EndSCHEMATC

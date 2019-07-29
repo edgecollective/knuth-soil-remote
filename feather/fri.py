@@ -15,7 +15,7 @@ ec_5_in = AnalogIn(board.A0)
 vbatt_in = AnalogIn(board.A5)
 
 
-SLEEP_TIME=10
+SLEEP_TIME=120
 
 # Initialize one-wire bus on board pin D5.
 #ow_bus = OneWireBus(board.D5)

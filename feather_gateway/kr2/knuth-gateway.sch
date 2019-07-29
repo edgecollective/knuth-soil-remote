@@ -552,8 +552,6 @@ F 3 "~" H 3700 1600 50  0001 C CNN
 $EndComp
 Text GLabel 3150 1500 0    50   Input ~ 0
 EXT_BAT
-Text GLabel 3150 1600 0    50   Input ~ 0
-GND
 Text GLabel 3150 1700 0    50   Input ~ 0
 5V_OUT
 $Comp
@@ -597,8 +595,6 @@ Connection ~ 3500 1600
 Wire Wire Line
 	3500 1700 3150 1700
 Connection ~ 3350 1600
-Wire Wire Line
-	3350 1600 3150 1600
 Wire Wire Line
 	3350 2100 4250 2100
 Wire Wire Line
@@ -690,4 +686,19 @@ Text GLabel 6650 700  2    50   Input ~ 0
 EXT_BAT
 Wire Wire Line
 	6650 850  6650 700 
+Wire Wire Line
+	2650 1600 2650 1650
+Wire Wire Line
+	2650 1600 3350 1600
+$Comp
+L power:GND #PWR?
+U 1 1 5D40C0D2
+P 2650 1650
+F 0 "#PWR?" H 2650 1400 50  0001 C CNN
+F 1 "GND" H 2655 1477 50  0000 C CNN
+F 2 "" H 2650 1650 50  0001 C CNN
+F 3 "" H 2650 1650 50  0001 C CNN
+	1    2650 1650
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

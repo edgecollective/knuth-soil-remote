@@ -611,13 +611,13 @@ to 5.5 / 2.1 mm jack (positive inner pole)\n(plug into DC jack on solar lipo cha
 $Comp
 L Connector:Screw_Terminal_01x02 alligator1
 U 1 1 5D3F7694
-P 5150 1300
-F 0 "alligator1" H 5150 1050 50  0000 C CNN
-F 1 "Screw_Terminal_01x02" H 5250 1500 50  0000 C CNN
-F 2 "TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-2-3.5-H_1x02_P3.50mm_Horizontal" H 5150 1300 50  0001 C CNN
-F 3 "~" H 5150 1300 50  0001 C CNN
-	1    5150 1300
-	1    0    0    -1  
+P 4750 1400
+F 0 "alligator1" H 4750 1150 50  0000 C CNN
+F 1 "Screw_Terminal_01x02" H 4850 1600 50  0000 C CNN
+F 2 "TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-2-3.5-H_1x02_P3.50mm_Horizontal" H 4750 1400 50  0001 C CNN
+F 3 "~" H 4750 1400 50  0001 C CNN
+	1    4750 1400
+	-1   0    0    1   
 $EndComp
 Wire Wire Line
 	4150 1300 4300 1300

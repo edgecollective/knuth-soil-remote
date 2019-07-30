@@ -18,16 +18,16 @@ vbatt_in = AnalogIn(board.A5)
 SLEEP_TIME=120
 
 # Initialize one-wire bus on board pin D5.
-#ow_bus = OneWireBus(board.D5)
+ow_bus = OneWireBus(board.D5)
 
 # Scan for sensors and grab the first one found.
-#ds18_bus=ow_bus.scan()
-#print(ds18_bus)
+ds18_bus=ow_bus.scan()
+print(ds18_bus)
 
-#ds18=[]
-#for probe in ds18_bus:
-#    print(probe)
-#    ds18.append(DS18X20(ow_bus, probe))
+ds18=[]
+for probe in ds18_bus:
+    print(probe)
+    ds18.append(DS18X20(ow_bus, probe))
 
 
 # lora radio
@@ -40,23 +40,31 @@ rfm9x = adafruit_rfm9x.RFM9x(spi, cs, reset, 915.0)
 led = digitalio.DigitalInOut(board.D13)
 led.direction = digitalio.Direction.OUTPUT
 
+# done
+done = digitalio.DigitalInOut(board.D10)
+done.direction = digitalio.Direction.OUTPUT
+
 # default values if probe doesn't work
 
 temp=30
 ec_5=20
 
+done.value=False
+
 while True:
     
-    #if (len(ds18)==1):
+    if (len(ds18)==1):
         
-        #sensor=ds18[0]
-        #temp=float(sensor.temperature)
-        #print("read temp:"+temp)
+        sensor=ds18[0]
+        temp=float(sensor.temperature)
+        print("read temp:"+str(temp))
         #print('{0:0.3f}C'.format(sensor.temperature))
 
-    temp = 25. #replace with onewire soon
+    #temp = 25. #replace with onewire soon
 
     ec_5= ec_5_in.value # in counts
+
+    print("ec_5=",str(ec_5))
 
     vbatt = vbatt_in.value*3.3 / 65536
     
@@ -71,5 +79,6 @@ while True:
     time.sleep(1)
     gc.collect()
 
+    done.value=True
     time.sleep(SLEEP_TIME)
 

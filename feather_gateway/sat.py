@@ -142,8 +142,10 @@ while True:
     if (len(ds18)==1):
         sensor=ds18[0]
         temp=float(sensor.temperature)
+        print("probe temp=",str(temp))
 
     ec_5= ec_5_in.value # in counts
+    print("ec_5 (counts)=",ec_5)
 
     vbatt = vbatt_in.value*3.3 / 65536
 
@@ -165,7 +167,7 @@ while True:
 
             print(params)
 
-            temp = 25. #replace with onewire soon
+            #temp = 25. #replace with onewire soon
 
             ec_5= ec_5_in.value # in counts
 

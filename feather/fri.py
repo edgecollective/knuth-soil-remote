@@ -46,8 +46,8 @@ done.direction = digitalio.Direction.OUTPUT
 
 # default values if probe doesn't work
 
-temp=30
-ec_5=20
+temp=-99
+ec_5=-99
 
 done.value=False
 
@@ -66,7 +66,7 @@ while True:
 
     print("ec_5=",str(ec_5))
 
-    vbatt = vbatt_in.value*3.3 / 65536
+    vbatt = vbatt_in.value*3.3 / 65536 * 2 #voltage divider
     
     sendstr=str(temp)+","+str(ec_5)+","+str(vbatt)
 
